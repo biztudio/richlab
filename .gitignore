@@ -8,6 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+richlab/
 env/
 build/
 develop-eggs/

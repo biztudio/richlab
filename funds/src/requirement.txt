@@ -1,0 +1,17 @@
+flask
+flask-restful
+flask-sqlalchemy
+flask-httpauth
+flask-login
+flask-bootstrap
+flask-script
+flask-exceptional
+flask-oauth
+flask-mail
+flask-marshmallow
+marshmallow-sqlalchemy
+tornado
+behave
+asyncio
+TinyDB
+httpie
