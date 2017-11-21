@@ -15,3 +15,5 @@ behave
 asyncio
 TinyDB
 httpie
+requests
+beautifulsoup4

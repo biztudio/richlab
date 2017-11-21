@@ -1,0 +1,1 @@
+.\richlab\scripts\deactivate
