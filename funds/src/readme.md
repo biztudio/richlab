@@ -3,6 +3,14 @@ Richlab 基金板块
 
 通过抓取分析基金业绩数据辅助对基金的选择投资
 
+指标：
+* 6个月排行
+* 1年排行
+* 3年排行
+* 5年排行
+* 重仓股分析
+* 星级( 1年 / 3年 / 5年 )
+
 Tech 栈
 
 * Flask 界面
@@ -12,3 +20,14 @@ Tech 栈
 * Python 数据分析库
 * Power BI (Desktop)
 * 前端 Vue + iView + Bootstrap
+* 基于 pyecharts 的数据可视化图表
+
+
+数据爬取目标网站:
+* [东方财富-天天基金](http://www.1234567.com.cn)
+* [和讯基金](http://funds.hexun.com/index.html)
+* [晨星基金](http://cn.morningstar.com/fundtools/fundranking/default.aspx)
+
+API 数据来源：
+* [聚合数据](https://www.juhe.cn/docs/index/extid/13)
+* [聚宽数据](https://www.joinquant.com/help/data/fund)

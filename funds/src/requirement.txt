@@ -17,3 +17,4 @@ TinyDB
 httpie
 requests
 beautifulsoup4
+pyecharts

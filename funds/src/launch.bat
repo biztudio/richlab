@@ -1,1 +1,0 @@
-.\richlab\scripts\activate
