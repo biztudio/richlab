@@ -24,7 +24,7 @@ Tech 栈
 
 
 数据爬取目标网站:
-* [东方财富-天天基金](http://www.1234567.com.cn)
+* [东方财富-天天基金](http://fund.eastmoney.com/data/fundranking.html#tall;c0;r;szzf;pn10000;ddesc;qsd20161123;qed20171123;qdii;zq;gg;gzbd;gzfs;bbzt;sfbb)
 * [和讯基金](http://funds.hexun.com/index.html)
 * [晨星基金](http://cn.morningstar.com/fundtools/fundranking/default.aspx)
 
