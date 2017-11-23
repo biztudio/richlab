@@ -1,6 +1,6 @@
 import urllib.request
 
-file=urllib.request.urlopen('http://www.baidu.com')
+file=urllib.request.urlopen('http://fund.eastmoney.com/data/fundranking.html#tall;c0;r;szzf;pn10000;ddesc;qsd20161123;qed20171123;qdii;zq;gg;gzbd;gzfs;bbzt;sfbb')
 data=file.read()
 
 #print(data)
