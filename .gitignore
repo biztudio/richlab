@@ -100,3 +100,5 @@ ENV/
 
 # mypy
 .mypy_cache/
+/funds/src/playground/p.txt
+/funds/src/playground/2.html
