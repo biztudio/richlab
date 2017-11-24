@@ -20,7 +20,6 @@ module.exports = {
                     loaders: {}
                 }
             },
-
             {
                 test: /\.tsx?$/,
                 loader: 'ts-loader',
@@ -29,22 +28,14 @@ module.exports = {
                   appendTsSuffixTo: [/\.vue$/],
                 }
             },
-            /*
-            {
-                test: /\.ts/,
-                loader: 'ts-loader',
-                exclude: /node_modules/,
-                options: {
-                  appendTsSuffixTo: [/\.vue$/],
-                }
-            },
-            */
 
+            //loader for typescript
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/
             },
+            
             {
                 test: /\.css$/,
                 loader: 'style-loader!css-loader'
@@ -69,7 +60,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.ts', '.js', '.vue', '.json'],
+        extensions: ['.js', '.json', '.ts', '.tsx', '.vue'],
         alias: {
             'vue$': 'vue/dist/vue.esm.js'
         }
@@ -85,7 +76,7 @@ module.exports = {
 }
 
 if (process.env.NODE_ENV === 'production') {
-    module.exports.devtool = '#source-map'
+    module.exports.devtool = '#source-map';
     // http://vue-loader.vuejs.org/en/workflow/production.html
     module.exports.plugins = (module.exports.plugins || []).concat([
       new webpack.DefinePlugin({
@@ -102,5 +93,5 @@ if (process.env.NODE_ENV === 'production') {
       new webpack.LoaderOptionsPlugin({
         minimize: true
       })
-    ])
+    ]);
   }

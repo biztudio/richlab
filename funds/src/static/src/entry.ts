@@ -2,8 +2,6 @@ import Vue from 'vue';
 //import iView from 'iview';
 import * as _ from 'lodash';
 
-console.log('entry ts');
-
 let v = new Vue({
     el: "#app",
     template: `
