@@ -4,11 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": ""
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "@types/es6-shim": "^0.31.35",
     "@types/jest": "^21.1.8",
+    "@types/lodash": "^4.14.85",
     "babel-core": "^6.26.0",
     "babel-jest": "^21.2.0",
     "babel-loader": "^7.1.2",
@@ -37,6 +39,7 @@
     "es6-promise-promise": "^1.0.0",
     "iview": "^2.7.3",
     "less": "^2.7.3",
+    "lodash": "^4.17.4",
     "mint-ui": "^2.2.11",
     "vue": "^2.5.8"
   }
