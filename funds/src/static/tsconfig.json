@@ -1,0 +1,14 @@
+{
+    "compileOnSave": true,
+    "exclude":[
+        "node_modules",
+        "**/*.spec.ts",
+        "**/*.test.ts"
+    ],
+    "compilerOptions":{
+        "target":"es5",
+        "sourceMap":true,
+        "removeComments": true,
+        "outDir":"./dist"
+    }
+}
