@@ -104,3 +104,4 @@ ENV/
 /funds/src/playground/2.html
 funds/src/2.html
 funds/src/p.txt
+/funds/src/static/node_modules
