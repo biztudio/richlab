@@ -1,3 +1,5 @@
+declare var jest, describe, it, test, expect, beforeAll, afterAll, beforeEach, afterEach;
+
 import { RandomTool } from '../src/common/random';
 
 describe('Test Class RandomTool', () =>{
