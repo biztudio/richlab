@@ -8,3 +8,4 @@ Typescript Related:
 
 Jest Related:
 * [Jest with Webpack](http://facebook.github.io/jest/docs/en/webpack.html)
+* [Jest with Typescript](https://www.npmjs.com/package/ts-jest)
