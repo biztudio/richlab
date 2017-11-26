@@ -8,9 +8,9 @@ export class RandomTool{
     }
 
     get_random_number(){
-        let rs = Math.random() * 10;
-        let rn = Math.ceil(rs);
-        let index = rn % this.max_number;
+        let rs:number = Math.random() * 10;
+        let rn:number = Math.ceil(rs);
+        let index:number = rn % this.max_number;
         return index;
     }
 }
