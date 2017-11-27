@@ -1,24 +1,33 @@
 <template>
-    <Row>
-        <Col span="12">col-12</Col>
-        <Col span="12">col-12</Col>
-    </Row>
-    <br>
-    <Row>
-        <Col span="8">col-8</Col>
-        <Col span="8">col-8</Col>
-        <Col span="8">col-8</Col>
-    </Row>
-    <br>
-    <Row>
-        <Col span="6">col-6</Col>
-        <Col span="6">col-6</Col>
-        <Col span="6">col-6</Col>
-        <Col span="6">col-6</Col>
-    </Row>
+    <div>
+        <div class="greeting">基金列表</div>
+    </div>
 </template>
-<script>
-    export default {
+
+<script lang="ts">
+
+    import Vue from "vue";
+    import GridModel from './grid_model';
+
+    export default Vue.extend({
+        props: ['name'],
+
+        data() {
+            return {
+                fund_model:new GridModel()
+            }
+        },
+
+        created:function(){
+            this.fund_model.list_fund();            
+        }
         
-    }
+    });
+
 </script>
+
+<style>
+.greeting {
+    font-size: 20px;
+}
+</style>
