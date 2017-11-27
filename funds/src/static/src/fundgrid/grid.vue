@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="greeting">基金列表</div>
+        <div class="greeting">基金列表</div>       
     </div>
 </template>
 
