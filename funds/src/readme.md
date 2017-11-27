@@ -19,7 +19,7 @@ Tech 栈
 * Python 数据抓取库 (爬虫)
 * Python 数据分析库
 * Power BI (Desktop)
-* 前端 Vue + iView + Bootstrap
+* 前端 Vue + elememt-ui stack + Bootstrap
 * 基于 pyecharts 的数据可视化图表
 
 
