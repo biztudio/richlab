@@ -4,7 +4,7 @@ var webpack = require('webpack');
 module.exports = {
     entry: {
         richlab: './src/entry.ts',
-        vendor:['axios','vue', 'element-ui']
+        vendor:['axios','vue', 'vue-class-component', 'vue-router', 'element-ui', 'lodash']
     },
     output:{
         path: path.resolve(__dirname, './dist'),

@@ -15,6 +15,6 @@ Vue.component('fundgrid', fundgrid);
 let v = new Vue({
     el: "#app",   
     data: {
-        name: "World"
+        name: ""
     }   
 });
