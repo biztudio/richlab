@@ -7,7 +7,7 @@ class GridModel{
         
     }
 
-    list_fund(){
+    list_fund():Array<Fund>{
         const fundlist = (<any>data).fund;
         let funds = new Array<Fund>();
         _.forEach(fundlist, function(value) {
