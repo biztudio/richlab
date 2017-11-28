@@ -1,10 +1,8 @@
 <template>
     <div>
-        <div class="greeting">基金列表</div>   
-        
         <el-table
             :data="currentTableData"
-            height="600"
+            height="520"
             size='small'
             border='true'
             stripe
@@ -80,7 +78,7 @@
 
         methods:{
             indexMethod(index:number):number {
-                return index + 1;//demo
+                return index + 1 + (this.currentPage - 1)*this.pageSize;//demo
             },
 
             show_current_page(pageIndex:number):Array<Fund>{
@@ -101,8 +99,3 @@
 
 </script>
 
-<style>
-.greeting {
-    font-size: 20px;
-}
-</style>
