@@ -1,13 +1,29 @@
 import * as data from '../../data/fundlist_db.json';
+import * as _ from 'lodash';
+import { Array } from 'es6-shim';
 
-export default class GridModel{
+class GridModel{
     constructor(){
         
     }
 
     list_fund(){
         const fundlist = (<any>data).fund;
-        console.log(fundlist);
+        let funds = new Array<Fund>();
+        _.forEach(fundlist, function(value) {
+            funds.push(value);
+        });
+        console.log(funds);
+        return (funds);
     }
 
+}
+
+class Fund {
+    constructor(public code:string, public name:string, public fee:string){}
+}
+
+export {
+    Fund,
+    GridModel
 }
