@@ -7,7 +7,7 @@ export class RandomTool{
         }
     }
 
-    get_random_number(){
+    get_random_number():number{
         let rs:number = Math.random() * 10;
         let rn:number = Math.ceil(rs);
         let index:number = rn % this.max_number;
