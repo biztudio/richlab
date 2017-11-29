@@ -17,7 +17,7 @@ class GridModel{
        此处使用_.forEach而不是for...of, 是由于数据源是一个大的对象而非列表，
        如果是列表（数组）的话，for...of 则性能好一些
        */
-        _.forEach(fundlist, function(value) {
+        _.each(fundlist, function(value) {
             instance.funds.push(value);
         });
         
