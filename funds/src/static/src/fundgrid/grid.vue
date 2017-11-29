@@ -16,13 +16,13 @@
             <el-table-column
             prop="code"
             sortable
-            label="基金代码"
+            label="代码"
             width="180">
             </el-table-column>
             <el-table-column
             prop="name"
             sortable
-            label="基金名称"
+            label="名称"
             width="500">
             </el-table-column>
             <el-table-column
@@ -86,11 +86,11 @@
             },
 
             handleSizeChange(val:number) {
-                console.log(`每页 ${val} 条`);
+                //console.log(`每页 ${val} 条`);
                 this.pageSize = val;
             },
             handleCurrentChange(val:number) {
-                console.log(`当前页: ${val}`);
+                //console.log(`当前页: ${val}`);
                 this.currentPage = val;
             }
         }

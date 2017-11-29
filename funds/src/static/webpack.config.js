@@ -4,13 +4,19 @@ var webpack = require('webpack');
 module.exports = {
     entry: {
         richlab: './src/entry.ts',
-        vendor:['axios','vue', 'vue-class-component', 'vue-router', 'element-ui', 'es6-shim', 'lodash']
+        jdata:'./data/fundlist_db.json',
+        vendor:['axios', 'vue', 'vue-class-component', 'vue-router', 'element-ui', 'es6-shim', 'lodash']
     },
     output:{
         path: path.resolve(__dirname, './dist'),
         publicPath: '/dist/',
         filename: '[name].bundle.js'
     },
+    plugins:[
+        new webpack.optimize.CommonsChunkPlugin({
+            names: ['richlab', 'jdata', 'vendor' ]
+        }),
+       ],
     module: {
         rules: [
             {

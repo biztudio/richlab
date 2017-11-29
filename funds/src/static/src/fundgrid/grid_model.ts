@@ -13,7 +13,7 @@ class GridModel{
         _.forEach(fundlist, function(value) {
             funds.push(value);
         });
-        console.log(funds);
+        //console.log(funds);
         return (funds);
     }
 
