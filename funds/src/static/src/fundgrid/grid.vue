@@ -94,12 +94,10 @@
             },
 
             handleSizeChange(val:number) {
-                //console.log(`每页 ${val} 条`);
                 this.pageSize = val;
             },
 
             handleCurrentChange(val:number) {
-                //console.log(`当前页: ${val}`);
                 this.currentPage = val;
             }
         }
