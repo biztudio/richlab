@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -16,6 +17,15 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             names: ['richlab', 'jdata', 'vendor' ]
         }),
+        
+        new webpack.ProvidePlugin({
+            Promise: 'es6-promise-promise'
+        }),
+
+        new CleanWebpackPlugin(
+            ['dist/*.bundle.js.map', 'dist/*.bundle.js'],　 //delete mapped file
+            { root: __dirname, verbose: false, dry: false}
+        )
        ],
     module: {
         rules: [
@@ -82,22 +92,34 @@ module.exports = {
 }
 
 if (process.env.NODE_ENV === 'production') {
-    module.exports.devtool = '#source-map';
+    module.exports.devtool = '#nosources-source-map'
     // http://vue-loader.vuejs.org/en/workflow/production.html
     module.exports.plugins = (module.exports.plugins || []).concat([
       new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: '"production"'
-        }
+        'process.env': { NODE_ENV: '"production"' }
       }),
       new webpack.optimize.UglifyJsPlugin({
-        sourceMap: true,
-        compress: {
-          warnings: false
-        }
+        sourceMap: false,
+        compress: { warnings: false }
       }),
       new webpack.LoaderOptionsPlugin({
         minimize: true
       })
     ]);
   }
+else if (process.env.NODE_ENV === 'development') {
+    module.exports.devtool = '#source-map'
+    module.exports.plugins = (module.exports.plugins || []).concat([
+        new webpack.DefinePlugin({
+            'process.env': { NODE_ENV: '"development"'}
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: false,
+            compress: { warnings: false }
+        }),
+        new webpack.LoaderOptionsPlugin({
+          minimize: true
+        })
+    ])
+}  
+/**/
