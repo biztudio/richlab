@@ -35,9 +35,9 @@
         <el-pagination
             @size-change="handleSizeChange"
             @current-change="handleCurrentChange"
-            :current-page="1"
-            :page-sizes="[50, 100, 200, 300, 400, 1000]"
-            :page-size="50"
+            :current-page="currentPage"
+            :page-sizes="pageSizeRange"
+            :page-size="pageSize"
             layout="total, sizes, prev, pager, next, jumper"
             :total="total_count">
         </el-pagination>
@@ -51,19 +51,27 @@
     import { Fund, GridModel } from './grid_model';
 
     export default Vue.extend({
-        props: ['name'],
+        props: ['filter'],
 
         data() {
             return {
                 fund_model:new GridModel(),
                 tableData: new Array<Fund>(),
                 currentPage:1,
-                pageSize:50
+                pageSize:50,
+                pageSizeRange:[50, 100, 200, 300, 400, 1000]
             }
         },
 
         created:function(){
             this.tableData = this.fund_model.list_fund();       
+        },
+
+        watch:{
+            filter:function(){
+                this.tableData =  this.fund_model.filter_fund(this.filter);
+                this.currentPage = 1;
+            }
         },
 
         computed:{
@@ -89,6 +97,7 @@
                 //console.log(`每页 ${val} 条`);
                 this.pageSize = val;
             },
+
             handleCurrentChange(val:number) {
                 //console.log(`当前页: ${val}`);
                 this.currentPage = val;

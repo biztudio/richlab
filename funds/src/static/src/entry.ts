@@ -14,6 +14,12 @@ Vue.component('fundgrid', fundgrid);
 let v = new Vue({
     el: "#app",   
     data: {
-        name: ""
+        name: "",
+        mixed_fundfilter:''
+    },
+    methods:{
+        relist_fund(){
+            console.log('Filter Changed');
+        }
     }   
 });

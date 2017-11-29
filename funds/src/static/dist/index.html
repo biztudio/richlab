@@ -24,8 +24,13 @@
 
     <body>
         <div id='app'>
-            <div class="greeting">基金列表</div>   
-            <fundgrid ></fundgrid>
+            <div class="greeting">
+                基金
+                <input type="text" style="width:200px" placeholder="过滤条件, 比如代码、名称" v-model="mixed_fundfilter" @change="relist_fund"/>
+            </div>   
+
+            <hr />
+            <fundgrid :filter='mixed_fundfilter'></fundgrid>
 
         </div>
 
@@ -50,6 +55,6 @@
             .greeting {
                 font-size: 20px;
             }
-            </style>
+        </style>
     </body>    
 </html>
