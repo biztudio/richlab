@@ -1,13 +1,13 @@
 <template>
-    <div>
+    <div id = 'fundlist_container' class="container_fl">
         <el-table
             :data="currentTableData"
-            height="650"
+            height="520"
             size='small'
             border
             stripe
             :default-sort = "{prop: 'name', order: 'ascending'}"
-            style="width:100%">
+            style="width:99%">
             <el-table-column
              type="index"
              width="50"
@@ -105,4 +105,10 @@
     });
 
 </script>
+
+ <style>
+    .container_fl {
+        height: 530px;
+    }
+</style>
 

@@ -4,7 +4,8 @@
         <meta http-equiv="Content-Type" content="text/html;charset=utf8">
         <title>Richlab</title>
         <link rel="shortcut icon" href="./favicon.ico" />
-		<!-- 引入样式 -->
+        <!-- 引入样式 -->
+        <link rel="stylesheet" href="./docs.min.css" type="text/css" />
 		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
         <style>
                 .divtitle
@@ -28,8 +29,9 @@
             </div>   
 
             <hr />
-            <fundgrid :filter='mixed_fundfilter'></fundgrid>
-
+            <div>
+                <fundgrid :filter='mixed_fundfilter'></fundgrid>
+            </div>        
         </div>
 
         <footer  class="bs-docs-footer footerStyle">	
