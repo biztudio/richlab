@@ -22,13 +22,13 @@
             <el-table-column
             prop="name"
             sortable
-            label="名称"
-            width="500">
+            label="名称">
             </el-table-column>
             <el-table-column
             prop="fee"
             sortable
-            label="费率">
+            label="费率"
+            width="100">
             </el-table-column>
         </el-table>
 
