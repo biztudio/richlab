@@ -4,7 +4,7 @@
             :data="currentTableData"
             height="520"
             size='small'
-            border='true'
+            border
             stripe
             :default-sort = "{prop: 'name', order: 'ascending'}"
             style="width: 100%">
