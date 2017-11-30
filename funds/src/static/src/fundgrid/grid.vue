@@ -63,8 +63,8 @@
             }
         },
 
-        created:function(){
-            this.tableData = this.fund_model.list_fund();       
+        created:async function(){
+            this.tableData = await this.fund_model.list_fund();       
         },
 
         watch:{

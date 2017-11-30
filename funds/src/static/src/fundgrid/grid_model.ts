@@ -30,15 +30,15 @@ class GridModel{
         });
     }
 
-    async list_fund_in_d_promise():Promise<Fund[]>{
-        return await this.db.fund.toArray();
-    }
-
-    list_fund():Array<Fund>{        
+    async list_fund():Promise<Fund[]>{        
         let instance = this;
         instance.funds = new Array<Fund>();
-        console.log(instance.db.fund.count());
-        if(!instance.db.fund.count()){
+        let existed_count:number = 0;
+        await instance.db.fund.count(c=>{
+            console.log(c);  
+            existed_count = (c);
+         });
+        if(!existed_count){
             console.log('Saving...');
             const fundlist = (<any>data).fund;
             /*
@@ -49,16 +49,11 @@ class GridModel{
                 //instance.funds.push(fv);
                 instance.save_fund_to_local_promise(new Fund( fv.code, fv.name, fv.fee ));
             });
-            //instance.save_to_local(instance.funds.slice(0));
-            //return instance.funds.slice(0);  
-            let t = this.list_fund_in_d_promise();
-            console.log(t);
         }
-        instance.db.fund.toArray().then(fes => {
-            for(let fe of fes){
-                instance.funds.push(new Fund(fe.code, fe.name, fe.fee));
-            }            
-        });
+        let flist = await await this.db.fund.toArray();
+        for(let fe of flist){
+            instance.funds.push(new Fund(fe.code, fe.name, fe.fee));
+        }   
         return instance.funds.slice(0);
     }
 
