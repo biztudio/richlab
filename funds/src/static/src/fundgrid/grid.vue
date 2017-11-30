@@ -2,12 +2,12 @@
     <div>
         <el-table
             :data="currentTableData"
-            height="520"
+            height="650"
             size='small'
             border
             stripe
             :default-sort = "{prop: 'name', order: 'ascending'}"
-            style="width: 100%">
+            style="width:100%">
             <el-table-column
              type="index"
              width="50"
@@ -22,13 +22,13 @@
             <el-table-column
             prop="name"
             sortable
-            label="名称">
+            label="名称"
+            width="360">
             </el-table-column>
             <el-table-column
             prop="fee"
             sortable
-            label="费率"
-            width="100">
+            label="费率" >
             </el-table-column>
         </el-table>
 
@@ -64,7 +64,7 @@
         },
 
         created:async function(){
-            this.tableData = await this.fund_model.list_fund();       
+            this.tableData = await this.fund_model.list_fund();
         },
 
         watch:{
