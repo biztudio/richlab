@@ -1,8 +1,9 @@
 import * as data from '../../data/fundlist_db.json';
 import * as _ from 'lodash';
-import { Array } from 'es6-shim';
+import { Array, Number } from 'es6-shim';
 import { IFund, Fund as FundEntity, RichlabDatabase } from '../common/storage';
-import { install } from 'element-ui';
+//import { install } from 'element-ui';
+import { log } from '../common/class_decorator';
 
 class GridModel{
     funds:Array<Fund>;
@@ -72,7 +73,20 @@ class GridModel{
 }
 
 class Fund {
+    
     constructor(public code:string, public name:string, public fee:string){}
+
+    //@log
+    get_fee_number():number{
+        if(this.fee == '0'){
+            return 0;
+        }
+        else if(this.fee.endsWith('%')){
+            let vals = this.fee.substring(0, this.fee.length - 1);
+            return (Number(vals));
+        }        
+        return 0;
+    }
 }
 
 export {
