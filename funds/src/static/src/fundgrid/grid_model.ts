@@ -13,13 +13,14 @@ class GridModel{
         this.db = new RichlabDatabase();
     }
 
-    async save_fundlist_to_local_promise(fund_entity_list:Array<FundEntity>){
+    private async save_fundlist_to_local_promise(fund_entity_list:Array<FundEntity>){
+        console.log('Local Saving...');
         await this.db.fund.bulkAdd(fund_entity_list).then(() => {
             console.log('Saved');
         });
     }
 
-    async save_fund_to_local_promise(fund:Fund){
+    private async save_fund_to_local_promise(fund:Fund){
         await this.db.fund.add({
             code: fund.code,
             name: fund.name,
@@ -27,13 +28,20 @@ class GridModel{
         });
     }
 
-    async list_fund():Promise<Fund[]>{        
+    private async push_data_to_list(flist_promise:Promise<IFund[]>):Promise<Array<Fund>>{
+        let flist = await flist_promise;
         let instance = this;
         instance.funds = new Array<Fund>();
-        let existed_count:number = 0;
-        await instance.db.fund.count(c=>{ console.log(c); existed_count = (c); });
+        for(let fe of flist){
+            instance.funds.push(new Fund(fe.code, fe.name, fe.fee));
+        }
+        return instance.funds.slice(0);   
+    }
+
+    async list_fund():Promise<Fund[]>{        
+        let instance = this;
+        let existed_count:number = await instance.db.fund.count();
         if(!existed_count){
-            console.log('Local Saving...');
             const fundlist = (<any>data).fund;
             /*
             此处使用_.forEach而不是for...of, 是由于数据源是一个大的对象而非列表，
@@ -43,11 +51,7 @@ class GridModel{
             _.each(fundlist, function(fv) { fund_entity_list.push(fv); });
             await instance.save_fundlist_to_local_promise(fund_entity_list);
         }
-        let flist = await this.db.fund.toArray();
-        for(let fe of flist){
-            instance.funds.push(new Fund(fe.code, fe.name, fe.fee));
-        }   
-        return instance.funds.slice(0);
+        return await instance.push_data_to_list(instance.db.fund.toArray());
     }
 
     filter_fund(filter:string):Array<Fund>{
