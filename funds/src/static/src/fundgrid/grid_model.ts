@@ -28,16 +28,6 @@ class GridModel{
         });
     }
 
-    private async push_data_to_list(flist_promise:Promise<IFund[]>):Promise<Array<Fund>>{
-        let flist = await flist_promise;
-        let instance = this;
-        instance.funds = new Array<Fund>();
-        for(let fe of flist){
-            instance.funds.push(new Fund(fe.code, fe.name, fe.fee));
-        }
-        return instance.funds.slice(0);   
-    }
-
     async list_fund():Promise<Fund[]>{        
         let instance = this;
         let existed_count:number = await instance.db.fund.count();
@@ -51,7 +41,11 @@ class GridModel{
             _.each(fundlist, function(fv) { fund_entity_list.push(fv); });
             await instance.save_fundlist_to_local_promise(fund_entity_list);
         }
-        return await instance.push_data_to_list(instance.db.fund.toArray());
+        instance.funds = new Array<Fund>();
+        await instance.db.fund.toArray().then(fes => {
+            instance.funds = fes.map(fe => {return new Fund(fe.code, fe.name, fe.fee)});
+        })
+        return instance.funds.slice(0);   
     }
 
     filter_fund(filter:string):Array<Fund>{
