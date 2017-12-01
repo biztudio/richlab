@@ -1,6 +1,20 @@
 declare var jest, describe, it, test, expect, beforeAll;
-import { GridModel } from '../src/fundgrid/grid_model'; 
+import { GridModel, Fund } from '../src/fundgrid/grid_model'; 
 import { Array } from 'es6-shim';
+
+describe('Test Value Convertor', ()=>{
+    test('Test Fee Convertor, if the fee string is "0" then the convert returns 0', ()=>{
+        let fund = new Fund('', '', '0');
+        let fee_valule = fund.get_fee_number();
+        expect(fee_valule).toBe(0);
+    });
+
+    test('Test Fee Convertor, if the fee string is "0.16%" then the convert returns 0.16', ()=>{
+        let fund = new Fund('', '', '0.16%');
+        let fee_valule = fund.get_fee_number();
+        expect(fee_valule).toBe(0.16);
+    });
+});
 
 describe('Test regex map feature fund list model', ()=>{
     let fund_model = new GridModel();

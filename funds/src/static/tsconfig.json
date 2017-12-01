@@ -11,6 +11,8 @@
         "sourceMap":true,
         "strict": true,
         "removeComments": true,
-        "outDir":"./dist"
+        "outDir":"./dist",
+        /*setting for decorator in typescript*/
+        "experimentalDecorators": true
     }
 }

@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "dexie": "^2.0.1",
     "element-ui": "^2.0.5",
     "es6-promise-promise": "^1.0.0",
     "less": "^2.7.3",

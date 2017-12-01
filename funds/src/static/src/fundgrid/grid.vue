@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id = 'fundlist_container' class="container_fl">
         <el-table
             :data="currentTableData"
             height="520"
@@ -7,7 +7,7 @@
             border
             stripe
             :default-sort = "{prop: 'name', order: 'ascending'}"
-            style="width: 100%">
+            style="width:99%">
             <el-table-column
              type="index"
              width="50"
@@ -22,13 +22,13 @@
             <el-table-column
             prop="name"
             sortable
-            label="名称">
+            label="名称"
+            width="360">
             </el-table-column>
             <el-table-column
             prop="fee"
             sortable
-            label="费率"
-            width="100">
+            label="费率" >
             </el-table-column>
         </el-table>
 
@@ -63,8 +63,8 @@
             }
         },
 
-        created:function(){
-            this.tableData = this.fund_model.list_fund();       
+        created:async function(){
+            this.tableData = await this.fund_model.list_fund();
         },
 
         watch:{
@@ -105,4 +105,10 @@
     });
 
 </script>
+
+ <style>
+    .container_fl {
+        height: 530px;
+    }
+</style>
 

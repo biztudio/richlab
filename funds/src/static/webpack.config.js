@@ -6,7 +6,7 @@ module.exports = {
     entry: {
         richlab: './src/entry.ts',
         jdata:'./data/fundlist_db.json',
-        vendor:['axios', 'vue', 'vue-class-component', 'vue-router', 'element-ui', 'es6-shim', 'lodash']
+        vendor:['axios', 'vue', 'vue-class-component', 'vue-router', 'element-ui', 'es6-shim', 'lodash', 'dexie']
     },
     output:{
         path: path.resolve(__dirname, './dist'),
