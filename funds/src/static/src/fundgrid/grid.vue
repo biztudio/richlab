@@ -6,7 +6,7 @@
             size='small'
             border
             stripe
-            :default-sort = "{prop: 'name', order: 'ascending'}"
+            :default-sort = "{prop: 'code', order: 'ascending'}"
             style="width:99%">
             <el-table-column
              type="index"
