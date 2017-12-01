@@ -105,3 +105,4 @@ ENV/
 funds/src/2.html
 funds/src/p.txt
 /funds/src/static/node_modules
+/funds/src/playground/fundlist_db.json
