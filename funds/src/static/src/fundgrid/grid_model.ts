@@ -42,6 +42,7 @@ class GridModel{
         }
         instance.funds = new Array<Fund>();
         await instance.db.fund.toArray().then(fes => {
+            console.log(fes.length);
             instance.funds = fes.map(fe => {return new Fund(fe.code, fe.name, fe.fee)});
         })
         return instance.funds.slice(0);   

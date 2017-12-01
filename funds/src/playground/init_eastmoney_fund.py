@@ -15,5 +15,3 @@ def insert_fund_to_listdb(raw_item):
 
 data_raw=pandas.read_json('./eastmoney_fundbase_data.json',encoding="utf-8")['datas']
 [insert_fund_to_listdb(f.split(',')) for f in data_raw]
-
-
