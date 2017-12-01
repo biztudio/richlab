@@ -2,7 +2,6 @@ import * as data from '../../data/fundlist_db.json';
 import * as _ from 'lodash';
 import { Array, Number } from 'es6-shim';
 import { IFund, Fund as FundEntity, RichlabDatabase } from '../common/storage';
-//import { install } from 'element-ui';
 import { log } from '../common/class_decorator';
 
 class GridModel{
