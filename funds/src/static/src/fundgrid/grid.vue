@@ -1,6 +1,9 @@
 <template>
     <div id = 'fundlist_container' class="container_fl">
         <el-table
+            v-loading="loading"
+            element-loading-text="数据拼命加载中"
+            element-loading-spinner="el-icon-loading"
             :data="currentTableData"
             height="520"
             size='small'
@@ -59,12 +62,15 @@
                 tableData: new Array<Fund>(),
                 currentPage:1,
                 pageSize:50,
-                pageSizeRange:[50, 100, 200, 300, 400, 1000]
+                pageSizeRange:[50, 100, 200, 300, 400, 1000],
+                loading: true,
+                loading_message: '数据拼命加载中'
             }
         },
 
         created:async function(){
             this.tableData = await this.fund_model.list_fund();
+            this.loading = false;
         },
 
         watch:{
