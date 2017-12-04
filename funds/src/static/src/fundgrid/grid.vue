@@ -13,7 +13,7 @@
             style="width:99%">
             <el-table-column
              type="index"
-             width="50"
+             width="80"
              :index="indexMethod">
             </el-table-column>
             <el-table-column
