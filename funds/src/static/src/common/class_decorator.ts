@@ -1,5 +1,4 @@
-import { Tree } from "element-ui";
-
+//http://tasaid.com/blog/20171011233014.html
 //类装饰器的参数是类的构造函数
 /*
  * 方法装饰器 参数
@@ -25,11 +24,17 @@ export function ModelMonitorAttribute(target:Function){// 类、方法、属性�
 }
 
 //Case 1 Example 2: 
-export function MethodLogAttribute(target: any, key:string, descriptor:any){
-    console.log('This is a method decorator: MethodLog');
-    //console.log(target);
-    console.log(key);
-    console.log(descriptor.value);
+export function MethodValidationAttribute(target: any, key:string, descriptor:any){
+    // 保存原来的方法
+    let method = descriptor.value;
+    //重写原来的方法
+    descriptor.value = (content:string)=> {
+        if(!content){
+            throw Error('Content can not be empty.');
+        }
+        console.log('method has valid content: ' + content);
+        return method(content);        
+    };
 }
 
 //Case 2 Example 1:

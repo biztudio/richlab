@@ -4,7 +4,7 @@ import { Array, Number } from 'es6-shim';
 import { IFund, Fund as FundEntity, RichlabDatabase } from '../common/storage';
 import { 
     ModelMonitorAttribute as ModelMonitor, 
-    MethodLogAttribute as MethodLog,
+    MethodValidationAttribute as MethodValidation,
     FlagAttribute as Flag
 } from '../common/class_decorator';
 
@@ -78,9 +78,8 @@ class GridModel{
 class Fund {
     
     constructor(public code:string, public name:string, public fee:string){}
-
-    //@MethodLog
-    @Flag('fee check')
+   
+    //@Flag('fee check')
     get_fee_number():number{
         if(this.fee == '0'){
             return 0;
@@ -92,8 +91,9 @@ class Fund {
         return 0;
     }
 
-    @Flag('300')
+    @MethodValidation
     check_300index_fund_by_name_demo(name:string):Boolean{
+        console.log('Check ' + name);
         let pattern:RegExp = new RegExp('300','g');
         return pattern.test(name);
     }
