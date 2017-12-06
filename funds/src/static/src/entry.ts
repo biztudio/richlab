@@ -4,8 +4,8 @@ import VueRouter from 'vue-router';
 import fundgrid from './fundgrid/grid.vue';
 import ElememtUI  from 'element-ui';
 
-import * as m from './declaration.demo/mydtm';
-console.log(m);
+//import * as m from './declaration.demo/mydtm';
+//console.log(m);
 
 Vue.use(ElememtUI);
 Vue.component('fundgrid', fundgrid);

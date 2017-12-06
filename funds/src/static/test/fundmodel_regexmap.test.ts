@@ -16,6 +16,20 @@ describe('Test Value Convertor', ()=>{
     });
 });
 
+describe('Test Decorator on method check_300index_fund_by_name_demo', () => {
+    test('Test on Index 300 related fund', ()=>{
+        let fund = new Fund('', '易方达沪深300指数基金', '');
+        let isIndex300 = fund.check_300index_fund_by_name_demo(fund.name);
+        expect(isIndex300).toBeTruthy();
+    });
+
+    test('Test on non-Index 300 related fund "招商白酒指数"', ()=>{
+        let fund = new Fund('', '招商白酒指数', '');
+        let isIndex300 = fund.check_300index_fund_by_name_demo(fund.name);
+        expect(isIndex300).toBeFalsy();
+    });
+});
+
 describe('Test regex map feature fund list model', ()=>{
     let fund_model = new GridModel();
 
