@@ -91,6 +91,7 @@ class Fund {
         return 0;
     }
 
+    @Flag('index name check')
     @MethodValidation
     check_300index_fund_by_name_demo(name:string):Boolean{
         console.log('Check ' + name);

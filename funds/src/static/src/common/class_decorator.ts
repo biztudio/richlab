@@ -38,14 +38,28 @@ export function MethodValidationAttribute(target: any, key:string, descriptor:an
 }
 
 //Case 2 Example 1:
+// 这是一个装饰器工厂，在外面使用 @FlagAttribute() 的时候就会调用这个工厂
 export function FlagAttribute(flag_message:string){//装饰器工厂
+    console.log(`FlagAttribute(): evaluated ${flag_message}`);
 
+    //作为工厂，可以根据传入的 flag_message 来返回不同的装饰器
     //装饰器定义
     return function (target: any, propertyKey: string, descriptor: PropertyDescriptor){// 类、方法、属性、方法参数的参数各不相同
-        // do something with "target" and "flag_message"...
-        console.log(flag_message);
-        console.log(target);
-        console.log('function: ' + propertyKey);
-        console.log(descriptor);
+        // do something with "target" and "flag_message"...       
+        //console.log(target);
+        //console.log('function: ' + propertyKey);
+        //console.log(descriptor);
+
+         // 保存原来的方法
+         let method = descriptor.value;
+         descriptor.value = (content?:string)=> {
+            if(!content){
+                console.log('This is a method withod string content');
+            }
+            else{
+                console.log(`This is a method with string content: ${content}`);
+            }
+            return method(content);        
+        };
     }
 }
