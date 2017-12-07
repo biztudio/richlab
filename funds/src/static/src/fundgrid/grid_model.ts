@@ -5,7 +5,8 @@ import { IFund, Fund as FundEntity, RichlabDatabase } from '../common/storage';
 import { 
     ModelMonitorAttribute as ModelMonitor, 
     MethodValidationAttribute as MethodValidation,
-    FlagAttribute as Flag
+    FlagAttribute as Flag,
+    RequiredParamAttribute as RequiredParam
 } from '../common/class_decorator';
 
 class GridModel{
@@ -93,8 +94,7 @@ class Fund {
 
     @Flag('index name check')
     @MethodValidation
-    check_300index_fund_by_name_demo(name:string):Boolean{
-        console.log('Check ' + name);
+    check_300index_fund_by_name_demo(@RequiredParam name:string):Boolean{
         let pattern:RegExp = new RegExp('300','g');
         return pattern.test(name);
     }

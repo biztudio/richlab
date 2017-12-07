@@ -24,7 +24,7 @@ export function ModelMonitorAttribute(target:Function){// 类、方法、属性�
 }
 
 //Case 1 Example 2: 
-export function MethodValidationAttribute(target: any, key:string, descriptor:any){
+export function MethodValidationAttribute(target: any, key:string, descriptor:PropertyDescriptor){
     // 保存原来的方法
     let method = descriptor.value;
     //重写原来的方法
@@ -62,4 +62,21 @@ export function FlagAttribute(flag_message:string){//装饰器工厂
             return method(content);        
         };
     }
+}
+
+//属性装饰器
+export function PropertyFlagAttribute(target:any, propertyKey:string){
+
+}
+
+//参数装饰器
+export function RequiredParamAttribute (target:any, propertyKey: string, parameterIndex: number) {
+    // target: 对于静态成员来说是类的构造函数，对于实例成员是类的原型对象
+    // propertyKey: 成员的名字
+    // parameterIndex: 参数在函数参数列表中的索引
+    // 参数装饰器只能拿到参数的索引
+    console.log(target);
+    console.log(propertyKey);
+    console.log(parameterIndex);
+    console.log(target[propertyKey]);
 }
