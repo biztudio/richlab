@@ -20,7 +20,7 @@
 //Case 1 Example 1: 类装饰器 -- (target: Function) 是类装饰器参数，指向的是类的构造函数
 //当装饰器作为修饰类的时候，会把构造器传递进去。
 export function ModelMonitorAttribute(constructor:Function){// 类、方法、属性、方法参数的参数各不相同
-    console.log('This is a Decorator: ModelMonitorAttribute');
+    //console.log('This is a Decorator: ModelMonitorAttribute');
     //这时实例化还没有进行，所以读取的属性是 undefined
     //console.log(constructor.prototype.category);
     //console.log(constructor.prototype.name);

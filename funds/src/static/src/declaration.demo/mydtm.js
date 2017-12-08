@@ -3,6 +3,9 @@ export default {
     code:5310567,
     name:'Yang SHEN',
     DtmInfo: function(){
-        return { code, name }
+        return { 
+            code: this.code,
+            name: this.name 
+        }
     }
 }
