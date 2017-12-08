@@ -75,10 +75,29 @@ class GridModel{
 
 }
 
-//@ModelMonitor
-class Fund {
-    
-    constructor(public code:string, public name:string, public fee:string){}
+export enum Fund_Category {
+    Hybrid,//混合型 0
+    Index,//指数型 1
+    Equity,//股票型 2
+    Bond, //债券型 3
+    QDII,// 4
+    Other //5
+};
+
+@ModelMonitor
+class Fund {    
+    //如果属性以 public category?:number 置于构造函数参数时，装饰器无法对prototype原型进行修改
+    category?:number
+
+    constructor(public code:string, public name:string, public fee:string/*, public category?:number*/){
+        //注意比较类装饰器与类构造函数的被调用顺序
+        //console.log(`Fund class ${name}: The instance is initialized.`);
+       
+        if(!this.category){
+            this.category = Fund_Category.Equity;
+        }
+        //console.log(`${this.name}'s category is set to ${this.category}`);
+    }
    
     //@Flag('fee check')
     get_fee_number():number{

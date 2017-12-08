@@ -18,9 +18,19 @@
  */
 
 //Case 1 Example 1: 类装饰器 -- (target: Function) 是类装饰器参数，指向的是类的构造函数
-export function ModelMonitorAttribute(target:Function){// 类、方法、属性、方法参数的参数各不相同
-    console.log('This is a class decorator: ModelMonitor');
-    console.log(target);
+//当装饰器作为修饰类的时候，会把构造器传递进去。
+export function ModelMonitorAttribute(constructor:Function){// 类、方法、属性、方法参数的参数各不相同
+    console.log('This is a Decorator: ModelMonitorAttribute');
+    //这时实例化还没有进行，所以读取的属性是 undefined
+    //console.log(constructor.prototype.category);
+    //console.log(constructor.prototype.name);
+
+    if(!constructor.prototype.category){
+        constructor.prototype.category = 5;
+    }
+    else{
+        //console.log(constructor.prototype.category);
+    }
 }
 
 //Case 1 Example 2: 
@@ -32,7 +42,7 @@ export function MethodValidationAttribute(target: any, key:string, descriptor:Pr
         if(!content){
             throw Error('Content can not be empty.');
         }
-        console.log('method has valid content: ' + content);
+        //console.log('method has valid content: ' + content);
         return method(content);        
     };
 }
@@ -40,24 +50,21 @@ export function MethodValidationAttribute(target: any, key:string, descriptor:Pr
 //Case 2 Example 1:
 // 这是一个装饰器工厂，在外面使用 @FlagAttribute() 的时候就会调用这个工厂
 export function FlagAttribute(flag_message:string){//装饰器工厂
-    console.log(`FlagAttribute(): evaluated ${flag_message}`);
+    //console.log(`FlagAttribute(): evaluated ${flag_message}`);
 
     //作为工厂，可以根据传入的 flag_message 来返回不同的装饰器
     //装饰器定义
     return function (target: any, propertyKey: string, descriptor: PropertyDescriptor){// 类、方法、属性、方法参数的参数各不相同
         // do something with "target" and "flag_message"...       
-        //console.log(target);
-        //console.log('function: ' + propertyKey);
-        //console.log(descriptor);
 
          // 保存原来的方法
          let method = descriptor.value;
          descriptor.value = (content?:string)=> {
             if(!content){
-                console.log('This is a method withod string content');
+                //console.log('This is a method withod string content');
             }
             else{
-                console.log(`This is a method with string content: ${content}`);
+                //console.log(`This is a method with string content: ${content}`);
             }
             return method(content);        
         };
@@ -75,8 +82,9 @@ export function RequiredParamAttribute (target:any, propertyKey: string, paramet
     // propertyKey: 成员的名字
     // parameterIndex: 参数在函数参数列表中的索引
     // 参数装饰器只能拿到参数的索引
-    console.log(target);
-    console.log(propertyKey);
-    console.log(parameterIndex);
-    console.log(target[propertyKey]);
+    
+    //console.log(target);
+    //console.log(propertyKey);
+    //console.log(parameterIndex);
+    //console.log(target[propertyKey]);
 }
