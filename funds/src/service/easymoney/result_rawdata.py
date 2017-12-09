@@ -84,3 +84,7 @@ if __name__ == '__main__':
     service = ResultRawDataService()
     result = service.fetch_archivedata(code)
     [service.print_rawdata_item(r) for r in result]
+    
+    from datetime import date
+    format = '%Y%m%d'
+    print ("本地时间为 :", date.today().strftime(format))
