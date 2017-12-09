@@ -74,3 +74,5 @@ def print_rawdata_item(rawdata):
     ', 四分位排名：', rawdata.four_division_grange )
 
 [print_rawdata_item(parse_tagdata_to_rawdata(d)) for d in uls_array]
+
+print([i for i in range(10)])
