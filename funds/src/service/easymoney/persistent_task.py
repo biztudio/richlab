@@ -14,12 +14,21 @@ rd_service = ResultRawDataService()
 def save_archive_data(code):
     rd_list = rd_service.fetch_archivedata(code)
     for rd in rd_list:
-        print(rd.category, rd.growth)
-        #archive_table.insert({
-         #   rd.
-        #})
+        #print(rd.category, rd.growth, rd.ref_avg_growth, rd.ref_HS300_growth, rd.current_range, rd.range_update, rd.four_division_grange)
+        archive_table.insert({
+           'code':code,
+           'category': rd.category, 
+           'growth':rd.growth, 
+           'ref_avg_growth':rd.ref_avg_growth, 
+           'ref_HS300_growth':rd.ref_HS300_growth, 
+           'current_range':rd.current_range, 
+           'range_update':rd.range_update, 
+           'four_division_grange':rd.four_division_grange
+        })
 
 if __name__ == '__main__':
     rdaq = Query()
     [save_archive_data(f['code']) for f in fund_table.search(rdaq.code == '161726')]
+    print('done')
+    print(archive_table.all())
 
