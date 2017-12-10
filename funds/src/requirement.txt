@@ -19,3 +19,4 @@ requests
 beautifulsoup4
 pyecharts
 pandas
+pyodbc
