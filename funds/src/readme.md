@@ -53,3 +53,12 @@ var defaults = { src: "rankhandler.aspx", op: "ph", dt: "kf", ft: "all", rs: "",
 * [债券](http://fund.eastmoney.com/data/rankhandler.aspx?op=ph&dt=kf&ft=zq&rs=&gs=0&sc=1nzf&st=desc&sd=2016-12-01&ed=2017-12-01&qdii=|&tabSubtype=,,,,,&pi=1&pn=10000&dx=1&v=0.37294940755246886)
 * [指数](http://fund.eastmoney.com/data/rankhandler.aspx?op=ph&dt=kf&ft=zs&rs=&gs=0&sc=1nzf&st=desc&sd=2016-12-01&ed=2017-12-01&qdii=|&tabSubtype=,,,,,&pi=1&pn=10000&dx=1&v=0.7946668558692445)
 * [QDII](http://fund.eastmoney.com/data/rankhandler.aspx?op=ph&dt=kf&ft=qdii&rs=&gs=0&sc=1nzf&st=desc&sd=2016-12-01&ed=2017-12-01&qdii=&tabSubtype=,,,,,&pi=1&pn=10000&dx=1&v=0.04531257243784825)
+
+
+理论参考：
+---
+为什么要以基金经理为核心？
+
+> 智能诊断不是通过基金经理在某一只基金上的表现对基金来打分，而是综合考虑了基金经理历史上管理的所有同类基金在他任内的表现后，对基金做出评价。
+> 公募基金经理存在较高离职率，如果只是通过基金的历史业绩来判断基金优劣，一旦基金经理变更，虽然基金的历史业绩不变，但由于前后两位基金经理在管理能力，投资风格等方面可能存在诸多差异，基金的历史业绩就会失去参考价值。基于此，如果只看历史业绩，就容易被误导。
+> 采用基金经理作为评分的核心，好处在于可以解决基金经理变更的问题，不管基金经理如何变更，诊断工具都只会追踪现任基金经理的能力表现。
