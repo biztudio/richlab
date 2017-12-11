@@ -12,6 +12,7 @@ class FundManagerService():
     '''
     基金经理的数据服务
     由于基金经理与基金的对应关系可能变动，所以这个数据需要定期同步并关联同步时间 
+    举例 http://fund.eastmoney.com/f10/jjjl_110022.html
     '''
     def __init__(self, *args, **kwargs):
         pass
