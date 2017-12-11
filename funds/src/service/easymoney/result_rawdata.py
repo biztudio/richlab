@@ -80,7 +80,7 @@ class ResultRawDataService():
         ', 四分位排名：', rawdata.four_division_grange )
 
 if __name__ == '__main__':
-    code = '161725'
+    code = '161726'
     service = ResultRawDataService()
     result = service.fetch_archivedata(code)
     [service.print_rawdata_item(r) for r in result]
