@@ -11,7 +11,7 @@ import {
 
 class GridModel{
     funds:Array<Fund>;
-    db:RichlabDatabase
+    db:RichlabDatabase;
 
     constructor(){
         this.db = new RichlabDatabase();
