@@ -56,3 +56,27 @@ if __name__ == '__main__':
     #cursor.execute("select code from em_archive_growth")
     #row = cursor.fetchone()
     #print(row)
+
+    from fund_manager_data import FundManagerService
+
+    service = FundManagerService()
+    
+    def save_manager_on_fund(manager):
+        cursor = cnxn.cursor()
+        #cmd = "{call EM_Add_Manager_On_Fund('"+manager.fund_code+"', '"+manager.code+"',N'"+manager.name+"','"+manager.growth_on_fund+"','"+manager.begin_date_on_fund+"','"+manager.end_date_on_fund+"')}"
+        cmd = "{call EM_Add_Manager_On_Fund(?,?,?,?,?,?)}"
+        values = (manager.fund_code, manager.code, manager.name, manager.growth_on_fund, manager.begin_date_on_fund, manager.end_date_on_fund)
+        cursor.execute(cmd,(values))
+
+    def save_fund_related_managers(fund_code):
+        manager = service.fetch_manager_info(fund_code)
+        [save_manager_on_fund(m) for m in manager]
+        print(fund_code,' done')
+
+    rdaq = Query()
+    #[save_fund_related_managers(f['code']) for f in fund_table.search(rdaq.code == '002229')] 
+    [save_fund_related_managers(f['code']) for f in fund_table.all()] 
+    cnxn.commit()
+    print('done')
+  
+   

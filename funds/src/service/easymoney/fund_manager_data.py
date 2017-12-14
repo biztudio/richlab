@@ -1,15 +1,18 @@
 import urllib.request
 from bs4 import BeautifulSoup
 
-class FundManager():
+class ManagerOnFund():
     '''
 
     '''
-    def __init__(self, name, ref_link, growth_on_fund, managing_funds):
+    def __init__(self, name, fund_code, ref_link, growth_on_fund, begin_date_on_fund, end_date_on_fund):
         self.name = name
         self.ref_link = ref_link
         self.growth_on_fund = growth_on_fund
-        self.managing_funds = managing_funds
+        self.begin_date_on_fund = begin_date_on_fund
+        self.end_date_on_fund = end_date_on_fund if end_date_on_fund != '至今' else ''
+        self.fund_code = fund_code
+        self.code = ref_link.split('/')[-1][:-5]
 
 class FundManagerService():
     '''
@@ -20,12 +23,15 @@ class FundManagerService():
     def __init__(self, *args, **kwargs):
         pass
 
-    def parse_manager_rowtag(self, managers_rowtag):
+    def parse_manager_rowtag(self, managers_rowtag, fund_code):
         manager_inf_tags = managers_rowtag.find_all('td')
         managers_person_tags = manager_inf_tags[2].find_all('a')
         growth_on_fund = manager_inf_tags[4].text
+        begin_date_on_fund = manager_inf_tags[0].text
+        end_date_on_fund = manager_inf_tags[1].text
         managers_list_per_tag = []
-        [managers_list_per_tag.append(FundManager(manager.text, manager['href'], growth_on_fund, [1,2,3])) for manager in managers_person_tags]
+        [managers_list_per_tag.append(ManagerOnFund(manager.text, fund_code, manager['href'], growth_on_fund, begin_date_on_fund, end_date_on_fund)) 
+        for manager in managers_person_tags]
         return managers_list_per_tag
         
     def fetch_manager_info(self, fund_code):
@@ -41,15 +47,28 @@ class FundManagerService():
         soup = BeautifulSoup(document, "html.parser")
         tables = soup.find_all('table', class_='w782 comm jloff')
         managers_table = tables[0]
-        current_manager = self.parse_manager_rowtag(managers_table.find_all('tr')[1])
-        #[print(m.name,m.growth_on_fund,m.ref_link) for m in current_manager]        
-        
+        managers_tag = managers_table.find_all('tr')
+        managers_list = []
+        tags = managers_tag[1:]
+        if(tags):
+            for manager_tag in tags:
+                manager = self.parse_manager_rowtag(manager_tag, fund_code)
+                #[print(m.fund_code, m.name,m.growth_on_fund,m.ref_link,m.begin_date_on_fund,m.end_date_on_fund) for m in manager]
+                [managers_list.append(m) for m in manager]
+        return managers_list
         #注意有很多基金有多个基金经理，所以关联基金列表应该有多个
-        #related_funds_to_current_manager = tables[1]
-        #print([m.name+'@'+m.ref_link for m in managers])
 
 if __name__ == '__main__':
-    fund_code = '110022'
+    #fund_code = '110022'
+    fund_code = '002229'
     service = FundManagerService()
     result = service.fetch_manager_info(fund_code)
+    [print(m.fund_code, m.name,m.code,m.growth_on_fund,m.ref_link,m.begin_date_on_fund,m.end_date_on_fund) for m in result]
+
+    '''
+    from result_rawdata import ResultRawDataService
+    fund_service = ResultRawDataService()
+    fund_result = fund_service.fetch_archivedata(fund_code)
+    [fund_service.print_rawdata_item(r) for r in fund_result]
+    '''
 
