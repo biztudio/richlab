@@ -29,6 +29,7 @@ Tech 栈
 * [东方财富-天天基金](http://fund.eastmoney.com/data/fundranking.html#tall;c0;r;szzf;pn10000;ddesc;qsd20161123;qed20171123;qdii;zq;gg;gzbd;gzfs;bbzt;sfbb)
 * [通过浏览器调试得到东方财富的数据](http://fund.eastmoney.com/data/rankhandler.aspx?op=ph&dt=kf&ft=all&rs=&gs=0&sc=zzf&st=desc&sd=2016-11-23&ed=2017-11-23&qdii=&tabSubtype=,,,,,&pi=1&pn=10000&dx=1&v=0.35518329794488435)
 * [同花顺基金数据举例: 华宝兴业服务](http://fund.10jqka.com.cn/000124/)
+* [好买基金数据举例:景顺长城能源基建](https://www.howbuy.com/fund/260112/)
 * [和讯基金](http://funds.hexun.com/index.html)
 * [晨星基金](http://cn.morningstar.com/fundtools/fundranking/default.aspx)
 
