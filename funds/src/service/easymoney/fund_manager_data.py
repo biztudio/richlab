@@ -18,9 +18,13 @@ class FundManagerService():
     '''
     基金经理的数据服务
     由于基金经理与基金的对应关系可能变动，所以这个数据需要定期同步并关联同步时间 
-    举例 http://fund.eastmoney.com/f10/jjjl_110022.html
+    指定基金与基金经理对应的举例 http://fund.eastmoney.com/f10/jjjl_110022.html
+
+    具体基金经理的信息参考举例:  http://fund.eastmoney.com/manager/30283641.html
     '''
     def __init__(self, *args, **kwargs):
+        #List some bad managers who are needed to be avoided.
+        self.bad_managers = {'30334244'}#,'30357094'}
         pass
 
     def parse_manager_rowtag(self, managers_rowtag, fund_code):
