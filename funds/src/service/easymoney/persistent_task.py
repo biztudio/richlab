@@ -6,9 +6,11 @@ import pyodbc
 format = '%Y%m%d'
 db = TinyDB('./fundlist_db.json')
 fund_table = db.table('fund')
+'''
 db_archive = TinyDB('./archive_db_'+ date.today().strftime(format) +'.json')
 archive_table = db_archive.table('archive')
 db_archive.purge_tables()
+'''
 
 rd_service = ResultRawDataService()
 
