@@ -25,13 +25,17 @@
         <div id='app'>
             <div class="greeting">
                 基金
-                <el-input
-                    placeholder="过滤条件, 比如代码、名称"
+                <el-autocomplete
+                    class="inline-input"
                     suffix-icon="el-icon-search"
-                    style="width:268px"
                     v-model="mixed_fundfilter"
-                    @change="relist_fund">
-                </el-input>
+                    placeholder="过滤条件, 比如代码、名称"
+                    :fetch-suggestions="querySearch"
+                    :trigger-on-focus="false"
+                    @select="handleSelect"
+                    style="width:268px">
+                </el-autocomplete>
+                
             </div>   
 
             <hr />
