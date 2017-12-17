@@ -9,12 +9,15 @@ from bs4 import BeautifulSoup
 class ManagerPerformance(object):
     '''
     '''
-    def __init__(self, fund_code, score, score_percent, suggestion):
+    def __init__(self, fund_code, score, score_percent, suggestion, conclude_statement):
         self.fund_code = fund_code
         self.score = score
         self.score_percent = score_percent
         self.suggestion = suggestion
+        self.conclude_statement = conclude_statement
 
+    def __repr__(self): 
+        return repr((self.fund_code, self.score, self.score_percent, self.suggestion, self.conclude_statement)) 
 
 class ManagerPerformanceService(object):
     '''
@@ -39,14 +42,19 @@ class ManagerPerformanceService(object):
             score_percent_tag = score_tag.find_next('div').find('span')
             score = score_tag.text
             score_percent = score_percent_tag.text
-            print(score,': ',score_percent)
         suggestion = ''
         suggestion_tag = soup.find('div', class_='hint', text='操作建议').find_previous('div').find('span')
         if(suggestion_tag):
             suggestion = suggestion_tag.text
-            print(suggestion)    
+        conclude_statement = ''
+        conclude_tag = soup.find('span', class_='text-ml', text='诊断综述').find_next('div')
+        if(conclude_tag):
+            conclude_statement = conclude_tag.text.strip()
+        performance = ManagerPerformance(fund_code, score, score_percent, suggestion, conclude_statement)
+        return performance        
 
 if __name__ == '__main__':
     fund_code = '260112'
     service = ManagerPerformanceService()
-    service.get_performance_on_fund(fund_code)
+    performance = service.get_performance_on_fund(fund_code)
+    print(performance)
