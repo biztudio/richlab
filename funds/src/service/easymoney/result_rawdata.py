@@ -22,6 +22,11 @@ class ResultRawDataService():
     def __init__(self, *args, **kwargs):
         pass
 
+    def get_all_fund_code(self):
+        from tinydb import TinyDB
+        fund_table = TinyDB('./fundlist_db.json').table('fund')
+        return [f['code'] for f in fund_table.all()]
+
     def parse_tagdata_to_rawdata(self, tag_bsobject):
         '''
         解析接口返回的标签数据，返回原数据列表
