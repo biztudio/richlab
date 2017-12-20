@@ -1,8 +1,8 @@
 '''
 Services to find the best top 20 & worst top 20
 '''
-from ..dkhs.manager_perf_on_fund import ManagerPerformance, ManagerPerformanceService
-from tinydb import TinyDB, Query
+from dkhs.manager_perf_on_fund import ManagerPerformance, ManagerPerformanceService
+from easymoney.result_rawdata import ResultRawDataService, ResultRawDataModel
 from datetime import date
 
 today_text = date.today().strftime('%Y-%m-%d')
@@ -32,10 +32,7 @@ class RangeService(object):
         '''
         To return the funds and the managers
         '''
-        pass        
-
-if __name__ == '__main__':
-    from ..easymoney.result_rawdata import ResultRawDataService
-    raw_data_service = ResultRawDataService()
-    fund_codes_list = raw_data_service.get_all_fund_code()
-    print(fund_codes_list)
+        rd_service = ResultRawDataService()
+        test = rd_service.fetch_archivedata(self.fund_codes_list[100])
+        print(test)
+        return     

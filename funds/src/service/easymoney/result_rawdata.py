@@ -15,17 +15,16 @@ class ResultRawDataModel():
         self.range_update = range_update
         self.four_division_grange = four_division_grange
 
+    def __repr__(self):
+        return repr((self.category, self.growth, self.ref_avg_growth, self.ref_HS300_growth, self.current_range, self.range_update, self.four_division_grange)) 
+
+
 class ResultRawDataService():
     '''
     Service to fetch data and create model
     '''
     def __init__(self, *args, **kwargs):
         pass
-
-    def get_all_fund_code(self):
-        from tinydb import TinyDB
-        fund_table = TinyDB('./fundlist_db.json').table('fund')
-        return [f['code'] for f in fund_table.all()]
 
     def parse_tagdata_to_rawdata(self, tag_bsobject):
         '''
