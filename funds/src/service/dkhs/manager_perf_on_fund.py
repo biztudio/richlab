@@ -75,7 +75,7 @@ class ManagerPerformanceService(object):
                     '''
                     category_text = category_tag.text
         performance = ManagerPerformance(fund_code, score, score_percent, suggestion, conclude_statement, fund_name, category_text)
-        print(fund_code,' done)
+        print(fund_code,' done')
         return performance
 
 

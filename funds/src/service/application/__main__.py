@@ -28,7 +28,7 @@ def list_fund_performance_archive(archive_name):
     return fund_table.all()
 
 #002906
-fund_codes_list = ['002906','002620','110022','000706','501021','002330']#get_all_fund_code()#
+fund_codes_list = get_all_fund_code()#['002906','002620','110022','000706','501021','002330']#
 service = RangeService(fund_codes_list)
 all_fund_perform_list = service.load_all_fund_perform_info()
 archive_fund_performance('all_fund_perform_list_'+today_text, all_fund_perform_list)
