@@ -8,7 +8,12 @@ def get_all_fund_code():
     return [f['code'] for f in fund_table.all()]
 
 #002906
-fund_codes_list = ['002906']#get_all_fund_code()
+fund_codes_list = ['002906','002620','110022','000706']#get_all_fund_code()
 service = RangeService(fund_codes_list)
-bad_list = service.find_worst_top100_manager()
-print(bad_list)
+worst_list_500 = service.find_worst_top500_funds()
+best_list_500 = service.find_best_top500_funds()
+print('BEST 500')
+print(best_list_500)
+
+print('WORST 500')
+print(worst_list_500)
