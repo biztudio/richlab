@@ -19,6 +19,15 @@ class RangeService(object):
         self.fund_codes_list = fund_codes_list
         self.fund_performance_list = []
 
+    def find_good_funds_score_sort(self, fund_category = ['混合型','股票型','指数型','债券型','货币型','QDII']):
+        '''
+        To return the funds and the managers
+        '''
+        good_fund_list = list(filter(lambda f:((f['suggestion'] == '建议增持' or f['suggestion'] == '建议买入') and f['category'] in fund_category), self.fund_performance_list))
+        best_funds = sorted(good_fund_list, key=lambda f: f['score'], reverse=True)
+        return best_funds
+        
+
     def find_best_top500_funds(self, fund_category = ['混合型','股票型','指数型','债券型','货币型','QDII']):
         '''
         To return the funds and the managers
