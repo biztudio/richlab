@@ -60,7 +60,7 @@ def save_archive_performance_all(performance_list):
     archive_date = '2017-12-22'#date.today().strftime('%Y-%m-%d')
     for p in performance_list:
         cursor.execute("insert into dkhs_fund_performance ([code],[archive_date],[score],[score_percent],[suggestion],[conclude],[category]) values (?,?,?,?,?,?,?)",
-        p.code, today_text, p.score, p.percent, p.suggestion, p.conclude, p.category)
+        p['code'], today_text, p['score'], p['percent'], p['suggestion'], p['conclude'], p['category'])
     cnxn.commit()    
 
 #002906
@@ -69,6 +69,7 @@ service = RangeService(fund_codes_list)
 #all_fund_perform_list = load_all_fund_perform_info(fund_codes_list)
 #archive_fund_performance('all_fund_perform_list_'+today_text, all_fund_perform_list)
 service.fund_performance_list = list_fund_performance_archive('all_fund_perform_list_'+today_text)
+save_archive_performance_all(service.find_good_funds_score_sort())
 '''
 best_top500_index_funds = service.find_best_top500_funds(['指数型'])
 archive_fund_category_performance('best_top500_index_funds_'+today_text, best_top500_index_funds)
