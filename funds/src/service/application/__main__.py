@@ -69,7 +69,7 @@ service = RangeService(fund_codes_list)
 #all_fund_perform_list = load_all_fund_perform_info(fund_codes_list)
 #archive_fund_performance('all_fund_perform_list_'+today_text, all_fund_perform_list)
 service.fund_performance_list = list_fund_performance_archive('all_fund_perform_list_'+today_text)
-save_archive_performance_all(service.find_good_funds_score_sort())
+#save_archive_performance_all(service.find_good_funds_score_sort())
 '''
 best_top500_index_funds = service.find_best_top500_funds(['指数型'])
 archive_fund_category_performance('best_top500_index_funds_'+today_text, best_top500_index_funds)
