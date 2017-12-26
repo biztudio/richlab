@@ -1,7 +1,7 @@
 from flask_restful import Api
 from flask import Flask
-from restapi.app_config import DevConfig, ProdConfig
-from restapi.resources.fund_performance import FundPerformanceResource
+from webapi.app_config import DevConfig, ProdConfig
+from webapi.resources.fund_performance import FundPerformanceResource
 
 app = Flask(__name__)
 

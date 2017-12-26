@@ -7,3 +7,4 @@ class FundPerformanceResource(Resource):
 
     def get(self, fund_code):
         return fund_code + self.date_version
+    

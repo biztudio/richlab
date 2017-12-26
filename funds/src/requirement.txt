@@ -4,6 +4,7 @@ flask-sqlalchemy
 flask-httpauth
 flask-login
 flask-bootstrap
+flask-graphql
 flask-script
 flask-exceptional
 flask-oauth
