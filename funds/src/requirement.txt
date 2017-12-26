@@ -9,6 +9,7 @@ flask-exceptional
 flask-oauth
 flask-mail
 flask-marshmallow
+graphene
 marshmallow-sqlalchemy
 tornado
 behave
