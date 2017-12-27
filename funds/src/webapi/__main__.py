@@ -14,4 +14,8 @@ CORS(app)
 api = Api(app)
 api.add_resource(FundPerformanceResource, '/fund_perf/<fund_code>')
 
+@app.route('/')
+def home():
+    return '<h1>Hello, Richlab</h1>'
+
 app.run()
