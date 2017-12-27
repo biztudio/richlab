@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "lb": "npm ls --depth=0",
+    "test": "jest --colors --verbose",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "debug": "cross-env NODE_ENV=development webpack --progress --colors --hide-modules"
   },
@@ -12,8 +13,10 @@
   "author": "Yang SHEN",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.17.1",
     "babel-polyfill": "^6.26.0",
-    
+    "dexie": "^2.0.1",
+    "lodash": "^4.17.4"   
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -25,7 +28,7 @@
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.6",
     "html-webpack-plugin": "^2.30.1",
-    "jest": "^22.0.4",
+    "jest": "^21.2.1",   
     "uglifyjs-webpack-plugin": "^1.1.4",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7"
