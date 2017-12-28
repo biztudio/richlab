@@ -20,8 +20,6 @@ class FundPerformDataListService(object):
     def get_performance_info(self, fund_code=''):
         self.load_all_fund_perform()        
         if(fund_code):
-            print(fund_code)
-            print(len(FundPerformDataListService.fund_perform_all))
             return list(filter(lambda f:f['code']==fund_code, FundPerformDataListService.fund_perform_all))
         else:
             return FundPerformDataListService.fund_perform_all        
