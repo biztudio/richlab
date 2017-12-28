@@ -2,7 +2,7 @@ from flask_restful import Api
 from flask import Flask
 from flask_cors import CORS
 from webapi.app_config import DevConfig, ProdConfig
-from webapi.resources.fund_performance import FundPerformDataListResource, FundPerformDataResource
+from webapi.resources.fund_performance import FundPerformanceResource
 
 app = Flask(__name__)
 CORS(app)
@@ -12,12 +12,10 @@ CORS(app)
 #app.config.from_object(DevConfig)
 
 api = Api(app)
-api.add_resource(FundPerformDataResource, '/fund_perform/<fund_code>')
-api.add_resource(FundPerformDataListResource, '/fund_perform')
+api.add_resource(FundPerformanceResource, '/fund_perf/<fund_code>')
 
 @app.route('/')
 def home():
     return '<h1>Hello, Richlab</h1>'
 
-if __name__=='__main__':
-    app.run(port=5050, host='0.0.0.0')
+app.run()
