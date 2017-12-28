@@ -5,7 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
     entry:{
         fundkits:'./src/entry.js',
-        vendor:['vue','vue-router','axios','babel-polyfill']
+        vendor:['vue','vue-router','cube-ui','axios','babel-polyfill']
     },
 
     output:{
@@ -69,7 +69,8 @@ module.exports = {
     resolve: {
         alias: {
             'vue':  'vue/dist/vue.js',
-            'vue$': 'vue/dist/vue.esm.js'
+            'vue$': 'vue/dist/vue.esm.js',
+            'cube-ui': 'cube-ui/lib'
         }
     }
 };
