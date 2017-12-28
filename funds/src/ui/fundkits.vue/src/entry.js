@@ -9,7 +9,8 @@ var richApp = new Vue({
     created:function(){
         console.log('created..');
         
-        axios.get(`http://richlab.applinzi.com/fund_perform/000993`)
+        //axios.get(`http://richlab.applinzi.com/fund_perform/000993`)
+        axios.get(`http://localhost:5050/fund_perform/000993`)
         .then(response => {
             // JSON responses are automatically parsed.
             console.log('api data for:' + response.data.name);
