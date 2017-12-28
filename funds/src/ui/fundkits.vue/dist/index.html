@@ -8,27 +8,25 @@
         <meta name="viewport" content="initial-scale=1, maximum-scale=1">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
         <link rel="shortcut icon" href="./favicon.ico" />
-        <!-- 引入样式 -->
-        <link rel="stylesheet" href="./docs.min.css" type="text/css" />
-		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-        <style>
-                .divtitle
-                {
-                    background-color:#2CA3E7;
-                    color:#FFFFFF;
-                }
-                
-                .footerStyle {			
-                    background-color:#FFFFFF;
-                }
-            </style>
-            
+        <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+        <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+        
+        <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+        <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+        <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+        
     </head>
 
     <body>
-        <div id='richapp'>
-            
+       
+        <div id='richapp' class="page-group">
+            <div class="page page-current">
+                <!-- app html here -->
+                <maintoolbar></maintoolbar>
+            </div>
         </div>
 
         <!-- referred common lib, such as vue -->
@@ -36,10 +34,7 @@
       
         <!-- js the app itself -->
         <script src="./fundkits.bundle.js" ></script>
-        <style>
-            .greeting {
-                font-size: 20px;
-            }
-        </style>
+
+
     </body>    
 </html>
