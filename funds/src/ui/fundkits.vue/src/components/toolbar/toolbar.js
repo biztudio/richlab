@@ -39,7 +39,7 @@ export default{
                 'icon_style':{'icon-star':true},
                 'active_style':{'active':false}},
 
-                {'name':'自选基金', 'link':'#myfund','badge':0, _item_index:3,
+                {'name':'自选基金', 'link':'#myfund','badge':10, _item_index:3,
                 'icon_style':{'icon-cart':true},
                 'active_style':{'active':false}},
 
