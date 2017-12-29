@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-import 'babel-polyfill';
+//import 'babel-polyfill';
 import Vue from 'vue';
 import axios from 'axios';
 

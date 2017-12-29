@@ -5,7 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
     entry:{
         fundkits:'./src/entry.js',
-        vendor:['vue','vue-router','axios','babel-polyfill']
+        vendor:['vue','vue-router','axios']//,'babel-polyfill']
     },
 
     output:{
