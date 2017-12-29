@@ -68,8 +68,9 @@ export default{
                     }
                 })
                 .catch(e => {
-                    self.errors.push(e)
-                    console.log(self.errors);
+                    self.fund_perform_result.score = 0;
+                    //self.errors.push(e);
+                    //console.log(self.errors);
                 });
             }
             //console.log(self.fund_perform_result);

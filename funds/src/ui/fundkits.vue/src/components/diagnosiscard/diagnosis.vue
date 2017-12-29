@@ -9,17 +9,22 @@
      </div>
    -->
     <div class="card-content">
-      <div class="card-content-inner">
+      <div class="card-content-inner" >
+        <div v-if='fund_perform_result.score > 0'>
         <p class="color-gray">{{fund_perform_result.name}}</p>
         <p class="color-gray">{{fund_perform_result.code}} - {{fund_perform_result.category}}</p>
         <p v-bind:class='fund_perform_result.style'>{{fund_perform_result.suggestion}}</p>
         <p v-bind:class='fund_perform_result.style'>业绩好于 {{fund_perform_result.percent}} 同类基金, 综合得分: {{fund_perform_result.score}}</p>
         <p>{{fund_perform_result.conclude}}</p>
-      </div>
+        </div>
+        <div v-if='fund_perform_result.score <= 0'>  
+          <p class="color-red">数据在路上，烦劳稍后再来...</p>
+        </div>  
+     </div>
     </div>
     <div class="card-footer">
-      <a href="#myfund" class="link">加自选</a>
-      <a href="#" class="link">业绩数据</a>
+      <a href="#myfund" class="link" v-if='fund_perform_result.score > 0'>加自选</a>
+      <a href="#" class="link" v-if='fund_perform_result.score > 0'>业绩数据</a>
     </div>
   </div>
 

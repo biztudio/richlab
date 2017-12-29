@@ -5,6 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
     entry:{
         fundkits:'./src/entry.js',
+        jdata:'./src/data/fundlist_db.json',
         vendor:['vue','vue-router','axios']//,'babel-polyfill']
     },
 
@@ -49,8 +50,8 @@ module.exports = {
         ),
 
         new webpack.optimize.CommonsChunkPlugin({
-            names: ["fundkits", "vendor"],
-            minChunks: 2
+            names: ["fundkits", 'jdata', "vendor"],
+            minChunks: 3
         })
     ],
     
