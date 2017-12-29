@@ -32,11 +32,11 @@ export default{
         return {
             bar_items:[
                 {'name':'基金诊断', 'link':'#diagnosis','badge':0, _item_index:1,
-                 'icon_style':{'icon-home':true},
+                 'icon_style':{'icon-star':true},
                  'active_style':{'active':false}},
 
                 {'name':'业绩排行', 'link':'#top100','badge':0, _item_index:2,
-                'icon_style':{'icon-star':true},
+                'icon_style':{'icon-menu':true},
                 'active_style':{'active':false}},
 
                 {'name':'自选基金', 'link':'#myfund','badge':10, _item_index:3,
