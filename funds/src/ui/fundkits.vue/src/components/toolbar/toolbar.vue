@@ -12,5 +12,4 @@
     
 <!--</id>-->    
 </template>
-<script src='./toolbar.js'>
-</script>
+<script src='./toolbar.js'></script>
