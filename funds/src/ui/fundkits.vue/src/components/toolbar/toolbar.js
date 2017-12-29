@@ -43,7 +43,7 @@ export default{
                 'icon_style':{'icon-cart':true},
                 'active_style':{'active':false}},
 
-                {'name':'一看就懂', 'link':'#about','badge':0, _item_index:4,
+                {'name':'点点看呐', 'link':'#about','badge':0, _item_index:4,
                 'icon_style':{'icon-me':true},
                 'active_style':{'active':false}}
 /*
