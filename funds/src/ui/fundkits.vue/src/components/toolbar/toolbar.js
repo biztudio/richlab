@@ -34,7 +34,7 @@ export default{
                 {'name':'基金诊断', 'link':'#diagnosis','badge':0, _item_index:1,
                  'icon_style':{'icon-star':true},
                  'active_style':{'active':false}},
-
+/*
                 {'name':'业绩排行', 'link':'#top100','badge':0, _item_index:2,
                 'icon_style':{'icon-menu':true},
                 'active_style':{'active':false}},
@@ -42,7 +42,7 @@ export default{
                 {'name':'自选基金', 'link':'#myfund','badge':10, _item_index:3,
                 'icon_style':{'icon-cart':true},
                 'active_style':{'active':false}},
-
+*/
                 {'name':'点点看呐', 'link':'#about','badge':0, _item_index:4,
                 'icon_style':{'icon-me':true},
                 'active_style':{'active':false}}

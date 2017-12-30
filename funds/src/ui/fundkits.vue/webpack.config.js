@@ -6,7 +6,7 @@ module.exports = {
     entry:{
         fundkits:'./src/entry.js',
         jdata:'./src/data/fundlist_db.json',
-        vendor:['vue','vue-router','axios']//,'babel-polyfill']
+        vendor:['vue','vue-router','axios','element-ui','lodash']//,'babel-polyfill']
     },
 
     output:{

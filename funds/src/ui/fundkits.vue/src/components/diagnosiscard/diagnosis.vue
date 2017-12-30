@@ -18,12 +18,13 @@
         <p>{{fund_perform_result.conclude}}</p>
         </div>
         <div v-if='fund_perform_result.score <= 0'>  
-          <p class="color-red">数据在路上，烦劳稍后再来...</p>
+          <p class="color-red" v-if='fund_keyword != 123456'>数据在路上，烦劳稍后再来...</p>
+          <p class="color-red" v-if='fund_keyword == 123456'>请填上方输入框填选一个基金名称或者代码试试看</p>
         </div>  
      </div>
     </div>
     <div class="card-footer">
-      <a href="#myfund" class="link" v-if='fund_perform_result.score > 0'>加自选</a>
+      <a href="#" class="link" v-if='fund_perform_result.score > 0'>加自选</a>
       <a href="#" class="link" v-if='fund_perform_result.score > 0'>业绩数据</a>
     </div>
   </div>
