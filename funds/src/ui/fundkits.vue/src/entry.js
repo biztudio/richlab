@@ -8,6 +8,7 @@ import toolbar from './components/toolbar/toolbar.vue';
 import diagnosis from './components/diagnosiscard/diagnosis.vue';
 import * as fund_basic_data from './data/fundlist_db.json';
 import fundkits_env from './data/fundkits.js';
+Vue.config.productionTip = false;
 
 //axios.defaults.headers.common['Authorization'] = "Bearer " + getAPIToken();
 //Vue.prototype.fund_basic_list = fund_basic_data.fund;
@@ -25,7 +26,7 @@ var richApp = new Vue({
             mixed_fundfilter:'',
             fund_list:[],
             funds_basic_list:[],
-            fund_code_for_diagnosis:'123456'//'110022'
+            fund_code_for_diagnosis:'123456'            
         };
     },
     created:function(){

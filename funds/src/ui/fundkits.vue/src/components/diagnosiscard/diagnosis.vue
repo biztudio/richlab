@@ -13,19 +13,18 @@
         <div v-if='fund_perform_result.score > 0'>
         <p class="color-gray">{{fund_perform_result.name}}</p>
         <p class="color-gray">{{fund_perform_result.code}} - {{fund_perform_result.category}}</p>
-        <p v-bind:class='fund_perform_result.style'>{{fund_perform_result.suggestion}}</p>
-        <p v-bind:class='fund_perform_result.style'>业绩好于 {{fund_perform_result.percent}} 同类基金, 综合得分: {{fund_perform_result.score}}</p>
+        <p v-bind:class='fund_perform_result.style'>业绩好于 {{fund_perform_result.percent}} 同类基金, 综合得分: {{fund_perform_result.score}}. {{fund_perform_result.suggestion}}</p>
         <p>{{fund_perform_result.conclude}}</p>
         </div>
         <div v-if='fund_perform_result.score <= 0'>  
           <p class="color-red" v-if='fund_keyword != 123456'>数据在路上，烦劳稍后再来...</p>
-          <p class="color-red" v-if='fund_keyword == 123456'>请填上方输入框填选一个基金名称或者代码试试看</p>
+          <p class="color-red" v-if='fund_keyword == 123456'>请填上方输入框填选一个基金名称 (比如 易方达消费 ) 或者代码 (比如 110022 ) 试试看</p>
         </div>  
      </div>
     </div>
     <div class="card-footer">
-      <a href="#" class="link" v-if='fund_perform_result.score > 0'>加自选</a>
-      <a href="#" class="link" v-if='fund_perform_result.score > 0'>业绩数据</a>
+      <a href="#" class="link" v-if='fund_perform_result.score > 100'>加自选(施工中)</a>
+      <a href="#" class="link" v-if='fund_perform_result.score > 100'>业绩数据(简易版)</a>
     </div>
   </div>
 

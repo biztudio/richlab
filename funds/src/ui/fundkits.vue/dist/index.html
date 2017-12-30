@@ -16,13 +16,12 @@
 
     <body>
        
-        <!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->    
         <div id='richapp' class="page-group">
 
             <div class="page page-current" id='diagnosis'>
                 <!-- Title in page -->
                 <header class="bar bar-nav">
-                    <a class="icon icon-me pull-left open-panel"></a>
+                    <a class="icon icon-star pull-left open-panel"></a>
                     <h1 class="title">现场坐诊立等可取</h1>
                 </header> 
 
@@ -33,7 +32,7 @@
                                 class="inline-input"
                                 suffix-icon="el-icon-search"
                                 v-model="mixed_fundfilter"
-                                placeholder="过滤条件, 比如代码、名称"
+                                placeholder="检索条件, 比如基金代码、名称"
                                 :fetch-suggestions="querySearch"
                                 :trigger-on-focus="false"
                                 @select="handleSelect"
@@ -48,9 +47,9 @@
                 <maintoolbar toolbar_id = 'dtb_diagnosis' item_index = '1'></maintoolbar>
             </div>
 <!--
-            <div class="page" id='top100'>
+            <div class="page" id='top100' >
                     <header class="bar bar-nav">
-                            <a class="icon icon-me pull-left open-panel"></a>
+                            <a class="icon icon-menu pull-left open-panel"></a>
                             <h1 class="title">比业绩而知差距</h1>
                     </header>
         
@@ -90,9 +89,9 @@
                 <maintoolbar toolbar_id = 'dtb_top100' item_index = '2'></maintoolbar>
             </div>
 
-            <div class="page" id='myfund'>
+            <div class="page" id='myfund' >
                     <header class="bar bar-nav">
-                            <a class="icon icon-me pull-left open-panel"></a>
+                            <a class="icon icon-cart pull-left open-panel"></a>
                             <h1 class="title">弱水三千只取几瓢</h1>
                     </header>
             
@@ -102,16 +101,64 @@
             
                     <maintoolbar toolbar_id = 'dtb_myfund' item_index = '3'></maintoolbar>
             </div>
-        -->
+        -->    
             <div class="page" id='about'>
                 <header class="bar bar-nav">
                         <a class="icon icon-me pull-left open-panel"></a>
-                        <h1 class="title">事情要讲清楚</h1>
+                        <h1 class="title">那些事儿</h1>
                 </header>
         
                 <!-- Content in page -->
                 <div class="content">
-                    <div class="content-block">这里是content</div>
+                    <div class="content-block">
+
+                        <div class="content-block-title">这是什么</div>
+                        <div class="card">
+                          <div class="card-content">
+                            <div class="card-content-inner">
+                                <p><b>彼此基金小帮手</b>(1.0.0 alpha)</p>                                
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="content-block-title">谁整的这玩意儿</div>
+                        <div class="card facebook-card">
+                            <div class="card-header no-border">
+                                <div class="facebook-avatar"><img src="./assets/24997430.jpg" width="34" height="34"></div>
+                                <div class="facebook-name">沈小扬同学 (微信 bizbetter)</div>
+                                <div class="facebook-date">since 2017.12</div>
+                            </div>
+                            <div class="card-content">
+                                    <div class="card-content-inner">
+                                        <p>搭建在云端的一个渐进式数据采集与分析实验平台. 鸣谢各大互联网基金平台提供丰富多维的数据池.</p>
+                                    </div>
+                            </div>
+                        </div>
+
+
+                        <div class="content-block-title">小目标</div>
+                        <div class="card">
+                          <div class="card-content">
+                            <div class="card-content-inner">
+                                    <p>1. 说人话, 直接直观直达结论(1.0.0)</p>
+                                    <p>2. 拒绝帮基金经理交学费(1.0.1)</p>
+                                    <p>3. 基金经理异动提示(1.2.0)</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="content-block-title">你懂的...</div>
+                        <div class="card">
+                          <div class="card-content">
+                            <div class="card-content-inner">
+                                    <p>爬虫所采集自互联网公开数据，应用仅供投基参考，盈亏自负</p>
+                                    <p>由于个人电脑和时间限制，有的基金数据可能暂时没有采集和处理, 敬请期待今后持续更新</p>                              
+                            </div>
+                          </div>
+                        </div>
+
+                       
+                    </div>
                 </div>
         
                 <maintoolbar toolbar_id = 'dtb_about' item_index = '4'></maintoolbar>
