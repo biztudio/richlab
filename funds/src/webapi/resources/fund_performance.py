@@ -21,3 +21,11 @@ class FundPerformDataResource(Resource):
         if fund_perform_info:
             return fund_perform_info[0]
         return ''
+
+class  AllGoodStockFundDataResource(Resource):
+    def __init__(self, *args, **kwargs):
+        self.data_service = FundPerformDataListService()
+
+    def get(self):
+        all_stock_good_list = self.data_service.get_good_stock_funds_list() 
+        return all_stock_good_list

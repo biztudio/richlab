@@ -6,6 +6,7 @@ class FundPerformDataListService(object):
 
     '''
     fund_perform_all = []
+    good_stock_fund_all = []
     data_version = '20171222'#date.today().strftime('%Y%m%d')
 
     def __init__(self, *args, **kwargs):        
@@ -17,6 +18,12 @@ class FundPerformDataListService(object):
             fund_table = perf_db.table('fund')
             FundPerformDataListService.fund_perform_all = fund_table.all()
 
+    def load_all_good_stock_fund_perform(self):
+        if len(FundPerformDataListService.good_stock_fund_all) <= 0:
+            perf_good_db = TinyDB('service/data/good_funds_score_sort_list_allstock_'+ FundPerformDataListService.data_version + '.json')
+            good_fund_table = perf_good_db.table('fund')
+            FundPerformDataListService.good_stock_fund_all = good_fund_table.all()        
+
     def get_performance_info(self, fund_code=''):
         self.load_all_fund_perform()        
         if(fund_code):
@@ -24,4 +31,6 @@ class FundPerformDataListService(object):
         else:
             return FundPerformDataListService.fund_perform_all        
 
-
+    def get_good_stock_funds_list(self):
+        self.load_all_good_stock_fund_perform()
+        return FundPerformDataListService.good_stock_fund_all
