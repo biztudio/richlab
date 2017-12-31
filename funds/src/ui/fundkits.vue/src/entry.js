@@ -7,7 +7,7 @@ import {Autocomplete}  from 'element-ui';
 import toolbar from './components/toolbar/toolbar.vue';
 import diagnosis from './components/diagnosiscard/diagnosis.vue';
 import * as fund_basic_data from './data/fundlist_db.json';
-import fundkits_env from './data/fundkits.js';
+import fundkits_env from './data/fundkits.env.js';
 Vue.config.productionTip = false;
 
 //axios.defaults.headers.common['Authorization'] = "Bearer " + getAPIToken();

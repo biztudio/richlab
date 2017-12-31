@@ -112,3 +112,4 @@ funds/src/.vscode/settings.json
 /data
 /.vscode
 tinyapp/
+coverage/

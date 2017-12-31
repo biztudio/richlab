@@ -5,7 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
     entry:{
         fundkits:'./src/entry.js',
-        jdata:'./src/data/fundlist_db.json',
+        jdata:['./src/data/fundlist_db.json','./src/data/all_fund_perform_list_20171222.json'],
         vendor:['vue','vue-router','axios','element-ui','lodash']//,'babel-polyfill']
     },
 
