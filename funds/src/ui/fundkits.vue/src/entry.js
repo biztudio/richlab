@@ -6,8 +6,10 @@ import * as _ from 'lodash';
 import {Autocomplete}  from 'element-ui';
 import toolbar from './components/toolbar/toolbar.vue';
 import diagnosis from './components/diagnosiscard/diagnosis.vue';
+import toplist from './components/toplist/toplist.vue';
 import * as fund_basic_data from './data/fundlist_db.json';
 import fundkits_env from './data/fundkits.env.js';
+
 Vue.config.productionTip = false;
 
 //axios.defaults.headers.common['Authorization'] = "Bearer " + getAPIToken();
@@ -18,11 +20,13 @@ Vue.prototype.service_base_url = fundkits_env.service_base_url;
 Vue.component(Autocomplete.name, Autocomplete);
 Vue.component('maintoolbar', toolbar);
 Vue.component('diagnosiscard', diagnosis);
+Vue.component('toplist', toplist);
 
 var richApp = new Vue({
     el:'#richapp',
     data(){
         return{
+            _perform_list:[],
             mixed_fundfilter:'',
             fund_list:[],
             funds_basic_list:[],
@@ -37,12 +41,12 @@ var richApp = new Vue({
 
     methods:{
         relist_fund(){
-            console.log('Filter Changed');
+            
         },
         
         handleSelect(item) {//for autocomplete input
             //What to do with the selected suggestion
-            console.log(item.code);
+            //console.log(item.code);
             this.fund_code_for_diagnosis = item.code;
         },
 

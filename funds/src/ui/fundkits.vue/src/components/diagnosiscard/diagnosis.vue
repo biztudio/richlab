@@ -24,7 +24,7 @@
     </div>
     <div class="card-footer">
       <a href="#" class="link" v-if='fund_perform_result.score > 100'>加自选(施工中)</a>
-      <a href="#" class="link" v-if='fund_perform_result.score > 100'>业绩数据(简易版)</a>
+      <a href="#top100" class="link" v-if='fund_perform_result.score < 80'>好基盛宴</a>
     </div>
   </div>
 

@@ -58,29 +58,28 @@ export default{
 
                 }
                 else{
+                    let fpMeetKeyword = self._perform_list.filter(fp => fp.code == self.fund_keyword);
+                    if(fpMeetKeyword){
+                        let fundperform = fpMeetKeyword[0];
+                            if(fundperform.code == self.fund_keyword){
+                                self.fund_perform_result.code = fundperform.code;
+                                self.fund_perform_result.name = fundperform.name;
+                                self.fund_perform_result.category = fundperform.category;
+                                self.fund_perform_result.score = fundperform.score;
+                                self.fund_perform_result.percent = fundperform.percent;
+                                self.fund_perform_result.suggestion = fundperform.suggestion;
+                                self.fund_perform_result.conclude = fundperform.conclude;
 
-                    for(let fundperform of self._perform_list){
-                        if(fundperform.code == self.fund_keyword){
-                            self.fund_perform_result.code = fundperform.code;
-                            self.fund_perform_result.name = fundperform.name;
-                            self.fund_perform_result.category = fundperform.category;
-                            self.fund_perform_result.score = fundperform.score;
-                            self.fund_perform_result.percent = fundperform.percent;
-                            self.fund_perform_result.suggestion = fundperform.suggestion;
-                            self.fund_perform_result.conclude = fundperform.conclude;
-
-                            self.fund_perform_result.style.good_fund_text = (fundperform.suggestion == '建议增持'|| fundperform.suggestion == '建议买入');
-                            self.fund_perform_result.style.good_fund_img = self.fund_perform_result.style.good_fund_text;
-                            self.fund_perform_result.style.bad_fund_text = (fundperform.suggestion == '建议减持');
-                            self.fund_perform_result.style.bad_fund_img = self.fund_perform_result.style.bad_fund_text;
-                            self.fund_perform_result.style.need_observe_text = (fundperform.suggestion == '建议观望');
-                            self.fund_perform_result.style.need_observe_img = self.fund_perform_result.style.need_observe_text;
-                            self.fund_perform_result.style.empty_observe_text = (fundperform.suggestion == '' || fundperform.suggestion == null);
-                            self.fund_perform_result.style.empty_observe_img = self.fund_perform_result.style.empty_observe_text;
-                            break;
-                        }
+                                self.fund_perform_result.style.good_fund_text = (fundperform.suggestion == '建议增持'|| fundperform.suggestion == '建议买入');
+                                self.fund_perform_result.style.good_fund_img = self.fund_perform_result.style.good_fund_text;
+                                self.fund_perform_result.style.bad_fund_text = (fundperform.suggestion == '建议减持');
+                                self.fund_perform_result.style.bad_fund_img = self.fund_perform_result.style.bad_fund_text;
+                                self.fund_perform_result.style.need_observe_text = (fundperform.suggestion == '建议观望');
+                                self.fund_perform_result.style.need_observe_img = self.fund_perform_result.style.need_observe_text;
+                                self.fund_perform_result.style.empty_observe_text = (fundperform.suggestion == '' || fundperform.suggestion == null);
+                                self.fund_perform_result.style.empty_observe_img = self.fund_perform_result.style.empty_observe_text;
+                            }
                     }
-
                     /*
                     let url = self.service_base_url+"fund_perform/"+self.fund_keyword;
                     console.log(url);

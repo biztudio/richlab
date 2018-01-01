@@ -35,12 +35,12 @@ export default{
                  'description':'现场坐诊立等可取',
                  'icon_style':{'icon-star':true},
                  'active_style':{'active':false}},
-/*
-                {'name':'业绩排行', 'link':'#top100','badge':0, _item_index:2,
+
+                {'name':'业绩推选', 'link':'#top100','badge':0, _item_index:2,
                 'description':'比业绩而知差距',
                 'icon_style':{'icon-menu':true},
                 'active_style':{'active':false}},
-
+/*
                 {'name':'自选基金', 'link':'#myfund','badge':10, _item_index:3,
                 'description':'弱水三千只取几瓢',
                 'icon_style':{'icon-cart':true},
